@@ -5,6 +5,7 @@ import { Text, View } from 'react-native';
 // Importing Local Components
 import LittleLemonHeader from './components/LittleLemonHeader';
 import Footer from './components/Footer';
+import WelcomeScreen from './components/WelcomeScreen';
 
 export default function App() {
   return (
@@ -14,6 +15,8 @@ export default function App() {
         backgroundColor: '#495E57'
       }}>
         <LittleLemonHeader />
+        <WelcomeScreen />
+
       </View >
 
       <View style={{ backgroundColor: '#495E57' }}>

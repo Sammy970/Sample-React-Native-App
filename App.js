@@ -13,8 +13,8 @@ export default function App() {
     <>
       <View style={styles.container}>
         <LittleLemonHeader />
-        <WelcomeScreen />
-        {/* <MenuItems /> */}
+        {/* <WelcomeScreen /> */}
+        <MenuItems />
       </View >
 
       <View style={{ backgroundColor: '#495E57' }}>

@@ -20,7 +20,7 @@ export default function App() {
       </View >
 
       <View style={{ backgroundColor: '#495E57' }}>
-        <Footer />
+        {/* <Footer /> */}
       </View>
 
     </>

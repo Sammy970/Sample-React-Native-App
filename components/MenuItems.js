@@ -1,5 +1,5 @@
-import * as React from 'react'
-import { View, Text, StyleSheet, SectionList } from 'react-native'
+import { React, useState } from 'react'
+import { View, Text, StyleSheet, SectionList, Pressable } from 'react-native'
 
 const green = '#495E57';
 const yellow = '#F4CE14';
@@ -61,6 +61,9 @@ const Footer = () => <Text style={menuStyles.headerText}>--  End  --</Text>
 
 
 const MenuItems = () => {
+
+    const [showMenu, setShowMenu] = useState(false)
+
     const renderItem = ({ item }) => <Item name={item.name} price={item.price} />;
 
     const renderSectionHeader = ({ section: { title } }) => (
@@ -72,14 +75,39 @@ const MenuItems = () => {
     return (
 
         <View style={menuStyles.container}>
-            <SectionList
-                sections={menuItemsToDisplay}
-                keyExtractor={(item, index) => item + index}
-                renderItem={renderItem}
-                renderSectionHeader={renderSectionHeader}
-            // ItemSeparatorComponent={Seperator}
-            // ListFooterComponent={Footer}
-            />
+            {!showMenu && (
+                <Text style={menuStyles.bodyText}>
+                    Little Lemon is a charming neighborhood bistro that serves simple food
+                    and classic cocktails in a lively but casual environment. View our menu to explore our cuisine with daily specials!
+                </Text>
+            )}
+
+            <Pressable
+                style={menuStyles.button}
+                onPress={() => {
+                    setShowMenu(!showMenu);
+                }}
+                onLongPress={() => {
+                    console.log("Long Press Woahh!")
+                }}
+            >
+                <Text style={menuStyles.buttonText}>{showMenu ? 'Close Menu' : 'View Menu'}</Text>
+
+            </Pressable>
+
+            {showMenu && (
+                <SectionList
+                    sections={menuItemsToDisplay}
+                    keyExtractor={(item, index) => item + index}
+                    renderItem={renderItem}
+                    renderSectionHeader={renderSectionHeader}
+                    ItemSeparatorComponent={Seperator}
+                // ListFooterComponent={Footer}
+                />
+            )}
+
+
+
         </View>
 
     );
@@ -128,6 +156,30 @@ const menuStyles = StyleSheet.create({
         width: 250,
         marginLeft: 'auto',
         marginRight: 'auto'
+    },
+    bodyText: {
+        fontSize: 24,
+        padding: 20,
+        marginVertical: 8,
+        color: '#EDEFEE',
+        textAlign: 'center',
+        backgroundColor: '#495E57',
+    },
+    button: {
+        padding: 7,
+        backgroundColor: 'beige',
+        borderWidth: 2,
+        margin: 30,
+        width: '35%',
+        borderRadius: 10,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+    },
+    buttonText: {
+        fontSize: 20,
+        textAlign: 'center',
+        fontWeight: 'bold',
+        color: 'black',
     }
 })
 

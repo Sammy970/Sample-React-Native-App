@@ -9,21 +9,23 @@ import WelcomeScreen from './components/WelcomeScreen';
 import MenuItems from './components/MenuItems';
 import FeedbackForm from './components/FeedbackForm';
 import Login from './components/Login';
+import ImageTest from './components/ImageTest';
 
 export default function App() {
   return (
     <>
       <View style={styles.container}>
-        <LittleLemonHeader />
+        {/* <LittleLemonHeader /> */}
+        <WelcomeScreen />
         {/* <MenuItems /> */}
-        {/* <WelcomeScreen /> */}
         {/* <FeedbackForm /> */}
-        <Login />
+        {/* <Login /> */}
+        {/* <ImageTest /> */}
       </View >
 
-      <View style={styles.footerContainer}>
+      {/* <View style={styles.footerContainer}>
         <Footer />
-      </View>
+      </View> */}
     </>
   );
 }
@@ -31,7 +33,8 @@ export default function App() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#495E57'
+    backgroundColor: 'beige'
+    // backgroundColor: '#495E57'
   },
   footerContainer: { backgroundColor: '#333333' },
 })

@@ -5,21 +5,26 @@ export default function WelcomeScreen() {
     return (
         <ScrollView style={welcomeStyles.container}>
 
-            <Image
-                style={welcomeStyles.logo}
-                source={require("../img/littleLemonHeader.png")}
-                resizeMode='contain'
-                accessible={true}
-                accessibilityLabel='Little Lemon Logo'
-            />
+            <View style={welcomeStyles.innerContainer}>
+                <Image
+                    style={welcomeStyles.logo}
+                    source={require("../img/littleLemonLogo.png")}
+                    resizeMode='center'
+                    accessible={true}
+                    accessibilityLabel='Little Lemon Logo'
+                />
+
+                <Text style={welcomeStyles.logoText}>Little Lemon</Text>
+
+            </View>
 
             <Text style={welcomeStyles.headerText}>
                 Little Lemon, your local Mediterranean Bistro
             </Text>
 
-            {/* <Text style={welcomeStyles.bodyText}>
+            <Text style={welcomeStyles.bodyText}>
                 Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!
-            </Text> */}
+            </Text>
 
             <Image
                 style={welcomeStyles.image}
@@ -65,6 +70,18 @@ const welcomeStyles = StyleSheet.create({
         marginTop: 30,
         marginBottom: 20,
     },
+    innerContainer: {
+        flexDirection: 'row',
+        justifyContent: 'center',
+        margin: 20,
+    },
+    logoText: {
+        paddingRight: 10,
+        paddingTop: 12,
+        fontSize: 35,
+        textAlign: 'center',
+        fontWeight: 'bold',
+    },
     headerText: {
         paddingVertical: 16,
         fontWeight: 'bold',
@@ -80,9 +97,9 @@ const welcomeStyles = StyleSheet.create({
         marginVertical: 8
     },
     logo: {
-        width: 300,
+        width: 100,
         height: 100,
-        marginTop: 19,
+        marginTop: -10,
         // marginBottom: -10,
         marginLeft: 'auto',
         marginRight: 'auto',

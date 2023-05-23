@@ -23,9 +23,9 @@ export default function App() {
         {/* <ImageTest /> */}
       </View >
 
-      {/* <View style={styles.footerContainer}>
+      <View style={styles.footerContainer}>
         <Footer />
-      </View> */}
+      </View>
     </>
   );
 }

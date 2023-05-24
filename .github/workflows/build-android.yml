@@ -29,8 +29,7 @@ jobs:
       - name: Build APK
         run: |
             cd ${{ github.workspace }}
-            npx react-native run-android --variant=release --no-interactive
-
+            npx react-native run-android --variant=release
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v2

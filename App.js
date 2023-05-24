@@ -1,8 +1,20 @@
 // import { StatusBar } from 'expo-status-bar';
 import * as React from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
+
+// Navigation Stuff
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+// Stack navigator
+// import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
+// Tab Navigator
+import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import { Ionicons } from '@expo/vector-icons' //Icons for Tab Navigator
+
+// Drawer Navigator
+import { createDrawerNavigator } from '@react-navigation/drawer';
+
 
 // Importing Local Components
 import LittleLemonHeader from './components/LittleLemonHeader';
@@ -17,9 +29,14 @@ import ImageTest from './components/ImageTest';
 const green = '#495E57';
 const yellow = '#F4CE14';
 
-// Instantiate Stack
-const Stack = createNativeStackNavigator();
+// Instantiate Stack Nav
+// const Stack = createNativeStackNavigator();
 
+// Instantiate Tab Nav
+const Tab = createBottomTabNavigator();
+
+// INstantiate Drawer Nav
+const Drawer = createDrawerNavigator();
 
 const LogoTitle = () => {
   return (
@@ -44,37 +61,28 @@ const LogoTitle = () => {
 export default function App() {
   return (
     <NavigationContainer>
-      <View style={styles.container}>
-        {/* <LittleLemonHeader /> */}
 
-        <Stack.Navigator
-          initialRouteName="Welcome"
-          screenOptions={{
-            headerStyle: { backgroundColor: '#333333' },
-            headerTintColor: '#FFF',
-            headerTitleStyle: {
-              fontWeight: 'bold'
+      <Tab.Navigator
+        screenOptions={({ route }) => ({
+          tabBarIcon: ({ focused, color, size }) => {
+            let iconName;
+
+            if (route.name === 'Home') {
+              iconName = 'ios-home'
+            } else if (route.name === 'Menu') {
+              iconName = 'ios-list';
+            } else if (route.name === 'Login') {
+              iconName = 'ios-enter'
             }
-          }}
-
-        >
-
-          <Stack.Screen
-            options={{
-              title: 'Home',
-              headerTitle: (props) => <LogoTitle {...props} />
-            }}
-            name="Welcome"
-            component={WelcomeScreen} />
-
-          <Stack.Screen options={{ title: 'Login' }} name="Login" component={Login} />
-
-          <Stack.Screen options={{ title: 'Menu' }} name="Menu" component={MenuItems} />
-
-        </Stack.Navigator>
-
-        <Footer />
-      </View>
+            return <Ionicons name={iconName} size={size} color={color} />
+          },
+          tabBarActiveTintColor: 'tomato',
+          tabBarInactiveTintColor: 'gray',
+        })}>
+        <Tab.Screen name="Home" component={WelcomeScreen} />
+        <Tab.Screen name="Login" component={Login} />
+        <Tab.Screen name="Menu" component={MenuItems} />
+      </Tab.Navigator>
     </NavigationContainer >
   );
 }

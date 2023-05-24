@@ -115,7 +115,8 @@ const MenuItems = () => {
 
 const menuStyles = StyleSheet.create({
     container: {
-        flex: 1
+        flex: 1,
+        backgroundColor: '#FBDABB',
     },
     innerContainer: {
         paddingHorizontal: 45,
@@ -141,9 +142,9 @@ const menuStyles = StyleSheet.create({
         borderColor: 'white'
     },
     sectionHeader: {
-        backgroundColor: yellow,
+        backgroundColor: '#FBDABB',
         borderBottomWidth: 2,
-        borderTopWidth: 2,
+        // borderTopWidth: 2,
         borderColor: 'black',
         color: '#333333',
         fontSize: 25,
@@ -152,18 +153,19 @@ const menuStyles = StyleSheet.create({
         textAlign: 'center'
     },
     sectionHeaderStyle: {
-        padding: 30,
-        width: 250,
-        marginLeft: 'auto',
-        marginRight: 'auto'
+        // padding: 30,
+        // width: 250,
+        // marginLeft: 'auto',
+        // marginRight: 'auto'
     },
     bodyText: {
-        fontSize: 24,
+        fontSize: 20,
         padding: 20,
         marginVertical: 8,
-        color: '#EDEFEE',
-        textAlign: 'center',
-        backgroundColor: '#495E57',
+        color: 'black',
+        textAlign: 'justify',
+        // textAlign: 'center',
+        backgroundColor: 'beige',
     },
     button: {
         padding: 7,

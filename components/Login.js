@@ -5,7 +5,7 @@ const green = '#495E57';
 const yellow = '#F4CE14';
 
 
-export default function Login() {
+export default function Login({ navigation }) {
 
     const [userID, onChangeUserID] = useState('');
     const [userPassword, onChangeUserPassword] = useState('');
@@ -55,6 +55,16 @@ export default function Login() {
                                 <Text style={loginStyles.buttonText}>Log In</Text>
 
                             </Pressable>
+
+                            <Pressable
+                                style={loginStyles.button}
+                                onPress={() => {
+                                    navigation.goBack();
+                                }}
+                            >
+                                <Text style={loginStyles.buttonText}>Go Back</Text>
+
+                            </Pressable>
                         </>
                     )}
 
@@ -83,19 +93,20 @@ export default function Login() {
 const loginStyles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 30
+        padding: 30,
+        backgroundColor: 'beige'
     },
     headerText: {
         fontSize: 36,
         padding: 30,
         textAlign: 'center',
-        color: 'beige',
+        color: 'black',
     },
     regularText: {
         fontSize: 25,
         padding: 10,
         textAlign: 'center',
-        color: 'beige',
+        color: 'black',
     },
     input: {
         fontSize: 20,
@@ -103,6 +114,7 @@ const loginStyles = StyleSheet.create({
         marginLeft: 'auto',
         marginRight: 'auto',
         backgroundColor: 'beige',
+        borderWidth: 2,
         borderRadius: 10,
         width: 250,
         // height: 40,

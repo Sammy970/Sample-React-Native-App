@@ -1,10 +1,9 @@
 import * as React from 'react'
-import { Text, View, ScrollView, StyleSheet, Image, useColorScheme } from 'react-native'
+import { Text, View, ScrollView, StyleSheet, Image, useColorScheme, Pressable } from 'react-native'
 
-export default function WelcomeScreen() {
+export default function WelcomeScreen({ navigation }) {
 
     const colorScheme = useColorScheme();
-
 
     return (
 
@@ -36,6 +35,22 @@ export default function WelcomeScreen() {
             <Text style={welcomeStyles.bodyText}>
                 Little Lemon is a charming neighborhood bistro that serves simple food and classic cocktails in a lively but casual environment. We would love to hear more about your experience with us!
             </Text>
+
+            <View style={welcomeStyles.innerContainer}>
+                <Pressable
+                    onPress={() => { navigation.navigate('Login') }}>
+                    <Text style={welcomeStyles.buttonText}>
+                        Login
+                    </Text>
+                </Pressable>
+
+                <Pressable
+                    onPress={() => { navigation.navigate('Menu') }}>
+                    <Text style={welcomeStyles.buttonText}>
+                        View Menu
+                    </Text>
+                </Pressable>
+            </View>
 
             <Image
                 style={welcomeStyles.image}
@@ -78,13 +93,14 @@ const welcomeStyles = StyleSheet.create({
     container: {
         flex: 1,
         padding: 24,
-        marginTop: 30,
+        // marginTop: 30,
         marginBottom: 20,
     },
     innerContainer: {
         flexDirection: 'row',
         justifyContent: 'center',
         margin: 20,
+        gap: 20,
     },
     logoText: {
         paddingRight: 10,
@@ -109,7 +125,7 @@ const welcomeStyles = StyleSheet.create({
     },
     logo: {
         width: 100,
-        height: 100,
+        height: 90,
         marginTop: -10,
         // marginBottom: -10,
         marginLeft: 'auto',
@@ -123,5 +139,18 @@ const welcomeStyles = StyleSheet.create({
         marginRight: 'auto',
         borderRadius: 10,
         borderWidth: 2
+    },
+    buttonText: {
+        padding: 10,
+        backgroundColor: 'beige',
+        fontSize: 20,
+        fontWeight: 'bold',
+        textAlign: 'center',
+        borderWidth: 2,
+        borderRadius: 10,
+        width: 170,
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        marginBottom: 30,
     }
 })

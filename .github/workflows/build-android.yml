@@ -25,9 +25,12 @@ jobs:
   
       - name: Install dependencies
         run: npm install
+        
+      - name: Change directory to root
+        run: cd ${{ github.workspace }}
 
       - name: Build APK
-        run: npx react-native run-android --variant=release --projectDir='./' --verbose
+        run: npx react-native run-android --variant=release --verbose
 
       - name: Archive artifacts
         uses: actions/upload-artifact@v2

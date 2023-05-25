@@ -1,4 +1,5 @@
 // import { StatusBar } from 'expo-status-bar';
+
 import * as React from 'react';
 import { Text, View, StyleSheet, Image } from 'react-native';
 
@@ -60,30 +61,19 @@ const LogoTitle = () => {
 
 export default function App() {
   return (
-    <NavigationContainer>
+    <>
+      <NavigationContainer>
+        <Drawer.Navigator useLegacyImplementation
+          initialRouteName='Welcome'
+          screenOptions={{ drawerPosition: 'left' }}
 
-      <Tab.Navigator
-        screenOptions={({ route }) => ({
-          tabBarIcon: ({ focused, color, size }) => {
-            let iconName;
-
-            if (route.name === 'Home') {
-              iconName = 'ios-home'
-            } else if (route.name === 'Menu') {
-              iconName = 'ios-list';
-            } else if (route.name === 'Login') {
-              iconName = 'ios-enter'
-            }
-            return <Ionicons name={iconName} size={size} color={color} />
-          },
-          tabBarActiveTintColor: 'tomato',
-          tabBarInactiveTintColor: 'gray',
-        })}>
-        <Tab.Screen name="Home" component={WelcomeScreen} />
-        <Tab.Screen name="Login" component={Login} />
-        <Tab.Screen name="Menu" component={MenuItems} />
-      </Tab.Navigator>
-    </NavigationContainer >
+        >
+          <Drawer.Screen name="Welcome" component={WelcomeScreen} />
+          <Drawer.Screen name="Login" component={Login} />
+          <Drawer.Screen name="Menu" component={MenuItems} />
+        </Drawer.Navigator>
+      </NavigationContainer>
+    </>
   );
 }
 
